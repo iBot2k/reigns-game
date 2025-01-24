@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const leftButton = document.getElementById('left-button');
     const rightButton = document.getElementById('right-button');
 
-    const questions = [
+    const question = [
         { 
           question: 'Апории Зенона демонстрируют', 
           left: 'Неприменимость обычных понятий к бесконечности', 
