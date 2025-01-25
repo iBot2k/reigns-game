@@ -5,7 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: red;
+    background-color: #000000; /* Изменен цвет фона на черный */
 }
 
 #game-container {
@@ -28,6 +28,7 @@ body {
     justify-content: center;
     align-items: center;
     transition: transform 0.5s ease, opacity 0.5s ease;
+    border: 2px dashed #007bff; /* Добавлен пунктирный контур */
 }
 
 button {
