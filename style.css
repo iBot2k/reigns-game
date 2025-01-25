@@ -1,4 +1,3 @@
-/* filepath: reigns-game/src/styles/style.css */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -11,6 +10,9 @@ body {
 
 #game-container {
     text-align: center;
+    position: relative;
+    width: 300px;
+    height: 400px;
 }
 
 #card {
@@ -18,6 +20,14 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 button {
@@ -32,4 +42,14 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+.card-leave-left {
+    transform: translateX(-100%) rotate(-20deg);
+    opacity: 0;
+}
+
+.card-leave-right {
+    transform: translateX(100%) rotate(20deg);
+    opacity: 0;
 }

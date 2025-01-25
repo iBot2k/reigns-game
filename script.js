@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const questionElement = document.getElementById('question');
   const leftButton = document.getElementById('left-button');
   const rightButton = document.getElementById('right-button');
+  const cardElement = document.getElementById('card');
 
   const questions = [
       { 
@@ -48,17 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
       questionElement.textContent = currentQuestion.question;
       leftButton.textContent = currentQuestion.left;
       rightButton.textContent = currentQuestion.right;
+      cardElement.classList.remove('card-leave-left', 'card-leave-right');
   }
 
-  leftButton.addEventListener('click', () => {
-      currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
-      loadQuestion();
-  });
+  function handleAnswer(direction) {
+      cardElement.classList.add(direction === 'left' ? 'card-leave-left' : 'card-leave-right');
+      setTimeout(() => {
+          currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+          loadQuestion();
+      }, 500);
+  }
 
-  rightButton.addEventListener('click', () => {
-      currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
-      loadQuestion();
-  });
+  leftButton.addEventListener('click', () => handleAnswer('left'));
+  rightButton.addEventListener('click', () => handleAnswer('right'));
 
   loadQuestion();
 });
