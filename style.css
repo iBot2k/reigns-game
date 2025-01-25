@@ -1,11 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #000000; /* Изменен цвет фона на черный */
+    background-color: #000000; /* Черный фон */
+    color: #00FF00; /* Зеленый текст */
 }
 
 #game-container {
@@ -16,10 +17,10 @@ body {
 }
 
 #card {
-    background-color: white;
+    background-color: #000000; /* Черный фон */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -28,16 +29,16 @@ body {
     justify-content: center;
     align-items: center;
     transition: transform 0.5s ease, opacity 0.5s ease;
-    border: 2px dashed #007bff; /* Добавлен пунктирный контур */
+    border: 2px dashed #00FF00; /* Пунктирный контур зеленого цвета */
 }
 
 button {
     margin: 10px;
     padding: 10px 20px;
-    border: none;
+    border: 2px solid #00FF00; /* Зеленый контур */
     border-radius: 5px;
-    background-color: #007bff;
-    color: white;
+    background-color: #000000; /* Черный фон */
+    color: #00FF00; /* Зеленый текст */
     cursor: pointer;
 }
 
