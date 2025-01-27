@@ -3,42 +3,50 @@ document.addEventListener('DOMContentLoaded', () => {
   const leftButton = document.getElementById('left-button');
   const rightButton = document.getElementById('right-button');
   const cardElement = document.getElementById('card');
+  const bodyElement = document.body;
 
   const questions = [
       { 
         question: 'Апории Зенона демонстрируют', 
         left: 'Неприменимость обычных понятий к бесконечности', 
-        right: 'Законы природы в геометрии' 
+        right: 'Законы природы в геометрии',
+        correct: 'left' 
       },
       { 
         question: 'Автор первого подробного трактата о конических сечениях', 
         left: 'Аполлоний', 
-        right: 'Эвклид' 
+        right: 'Эвклид',
+        correct: 'left' 
       },
       { 
         question: 'Аттическая нумерация в Древней Греции была', 
         left: 'пятерично-десятичной', 
-        right: 'троичной' 
+        right: 'троичной',
+        correct: 'left' 
       },
       { 
         question: 'Гильберт сделал свой доклад, содержащий 23 проблемы в...', 
         left: '1900 г.', 
-        right: '1920 г.' 
+        right: '1920 г.',
+        correct: 'left' 
       },
       { 
         question: 'Главное сочинение Фиббоначчи', 
         left: 'Книга абака', 
-        right: 'Начала геометрии' 
+        right: 'Начала геометрии',
+        correct: 'left' 
       },
       { 
         question: 'Выберите две дисциплины второго порядка абстракции', 
         left: 'общая алгебра, функциональный анализ', 
-        right: 'арифметика, алгебра' 
+        right: 'арифметика, алгебра',
+        correct: 'left' 
       },
       { 
         question: 'Геометрия основана на интуитивных понятиях пространства', 
         left: 'Да', 
-        right: 'Нет' 
+        right: 'Нет',
+        correct: 'left' 
       }
   ];
 
@@ -50,9 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
       leftButton.textContent = currentQuestion.left;
       rightButton.textContent = currentQuestion.right;
       cardElement.classList.remove('card-leave-left', 'card-leave-right');
+      bodyElement.classList.remove('correct-answer', 'wrong-answer');
   }
 
   function handleAnswer(direction) {
+      const currentQuestion = questions[currentQuestionIndex];
+      const isCorrect = direction === currentQuestion.correct;
+      bodyElement.classList.add(isCorrect ? 'correct-answer' : 'wrong-answer');
       cardElement.classList.add(direction === 'left' ? 'card-leave-left' : 'card-leave-right');
       setTimeout(() => {
           currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
