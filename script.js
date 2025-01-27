@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       questionElement.textContent = currentQuestion.question;
       leftButton.textContent = currentQuestion.left;
       rightButton.textContent = currentQuestion.right;
-      cardElement.classList.remove('card-leave-left', 'card-leave-right');
+      cardElement.classList.remove('card-leave-left', 'card-leave-right', 'wrong-answer');
       bodyElement.classList.remove('correct-answer', 'wrong-answer');
   }
 
@@ -66,6 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const isCorrect = direction === currentQuestion.correct;
       bodyElement.classList.add(isCorrect ? 'correct-answer' : 'wrong-answer');
       cardElement.classList.add(direction === 'left' ? 'card-leave-left' : 'card-leave-right');
+      if (!isCorrect) {
+          cardElement.classList.add('wrong-answer');
+      }
       setTimeout(() => {
           currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
           loadQuestion();
