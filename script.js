@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       questionElement.textContent = currentQuestion.question;
       leftButton.textContent = currentQuestion.left;
       rightButton.textContent = currentQuestion.right;
-      cardElement.classList.remove('card-leave-left', 'card-leave-right', 'wrong-answer');
+      cardElement.classList.remove('card-leave-left', 'card-leave-right');
       bodyElement.classList.remove('correct-answer', 'wrong-answer');
   }
 
@@ -66,9 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const isCorrect = direction === currentQuestion.correct;
       bodyElement.classList.add(isCorrect ? 'correct-answer' : 'wrong-answer');
       cardElement.classList.add(direction === 'left' ? 'card-leave-left' : 'card-leave-right');
-      if (!isCorrect) {
-          cardElement.classList.add('wrong-answer');
-      }
       setTimeout(() => {
           currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
           loadQuestion();
@@ -79,19 +76,4 @@ document.addEventListener('DOMContentLoaded', () => {
   rightButton.addEventListener('click', () => handleAnswer('right'));
 
   loadQuestion();
-
-  // Добавляем функцию AutoScale и ChangeScale
-  window.addEventListener("resize", AutoScale); // Масштабируем страницу при растягивании окна
-  AutoScale(); // Масштабируем страницу после загрузки
-
-  function AutoScale() {
-      let width = window.innerWidth; // Ширина окна
-      if (width > 1280) {
-          ChangeScale("big");
-      } else if (width <= 1280 && width > 720) {
-          ChangeScale("normal");
-      } else if (width < 720) {
-          ChangeScale("small");
-      }
-  }
-})
+});
