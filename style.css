@@ -93,37 +93,3 @@ button:hover {
     border-color: #FF0000;
     color: #FF0000;
 }
-
-
-
-@media (max-width: 1080px) {
-    body {
-        font-size: 12px;
-    }
-
-    #game-container {
-        width: 100%;
-        height: auto;
-        margin: 10px;
-    }
-
-    button {
-        width: 80%;
-    }
-}
-
-@media (max-width: 2412px) {
-    body {
-        font-size: 14px;
-    }
-
-    #game-container {
-        width: 90%;
-        height: auto;
-        margin: 10px;
-    }
-
-    button {
-        width: 90%;
-    }
-}
