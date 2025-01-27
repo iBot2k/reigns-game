@@ -44,8 +44,10 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    transform: scale(1.2);
 }
+
+
 
 .card-leave-left {
     transform: translateX(-100%) rotate(-20deg);
@@ -90,4 +92,35 @@ button:hover {
 .wrong-answer #card, .wrong-answer button {
     border-color: #FF0000;
     color: #FF0000;
+}
+
+
+
+/* Для планшетов */
+@media (max-width: 1280px) {
+    body {
+        font-size: 14px;
+    }
+
+    #game-container {
+        width: 300px;
+        height: 400px;
+    }
+}
+
+/* Для мобильных устройств */
+@media (max-width: 720px) {
+    body {
+        font-size: 12px;
+    }
+
+    #game-container {
+        width: 100%;
+        height: auto;
+        margin: 10px;
+    }
+
+    button {
+        width: 80%;
+    }
 }

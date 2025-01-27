@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
                   loadQuestion();
               }, 500);
-          }, 10); // Длительность глитч-эффекта
+          }, 1000); // Длительность мерцания
       } else {
           cardElement.classList.add('correct-answer');
           setTimeout(() => {
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
                   loadQuestion();
               }, 500);
-          }, 10); // Длительность мерцания
+          }, 1000); // Длительность мерцания
       }
   }
 
@@ -91,20 +91,4 @@ document.addEventListener('DOMContentLoaded', () => {
   rightButton.addEventListener('click', () => handleAnswer('right'));
 
   loadQuestion();
-
-  // Добавляем функцию AutoScale и ChangeScale
-  window.addEventListener("resize", AutoScale); // Масштабируем страницу при растягивании окна
-  AutoScale(); // Масштабируем страницу после загрузки
-
-  function AutoScale() {
-      let width = window.innerWidth; // Ширина окна
-      if (width > 1280) {
-          ChangeScale("big");
-      } else if (width <= 1280 && width > 720) {
-          ChangeScale("normal");
-      } else if (width < 720) {
-          ChangeScale("small");
-      }
-  }
-
 });
