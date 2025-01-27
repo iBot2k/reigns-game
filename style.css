@@ -96,20 +96,7 @@ button:hover {
 
 
 
-/* Для планшетов */
-@media (max-width: 1280px) {
-    body {
-        font-size: 14px;
-    }
-
-    #game-container {
-        width: 300px;
-        height: 400px;
-    }
-}
-
-/* Для мобильных устройств */
-@media (max-width: 720px) {
+@media (max-width: 1080px) {
     body {
         font-size: 12px;
     }
@@ -122,5 +109,21 @@ button:hover {
 
     button {
         width: 80%;
+    }
+}
+
+@media (max-width: 2412px) {
+    body {
+        font-size: 14px;
+    }
+
+    #game-container {
+        width: 90%;
+        height: auto;
+        margin: 10px;
+    }
+
+    button {
+        width: 90%;
     }
 }
