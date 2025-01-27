@@ -62,7 +62,7 @@ button:hover {
 }
 
 .wrong-answer {
-    background-color: #FF0000 !important; /* Красный фон для неправильного ответа */
+    
     animation: glitch 1s infinite;
 }
 
@@ -71,70 +71,18 @@ button:hover {
         transform: translate(0);
     }
     20% {
-        transform: translate(-2px, 2px);
+        transform: translate(-3px, 3px);
     }
     40% {
-        transform: translate(-2px, -2px);
+        transform: translate(-3px, -3px);
     }
     60% {
-        transform: translate(2px, 2px);
+        transform: translate(3px, 3px);
     }
     80% {
-        transform: translate(2px, -2px);
+        transform: translate(3px, -3px);
     }
     100% {
         transform: translate(0);
-    }
-}
-
-/* Медиазапросы для адаптации под разные размеры экрана */
-@media (max-width: 600px) {
-    #game-container {
-        width: 90%;
-        height: auto;
-    }
-
-    #card {
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    button {
-        padding: 5px 10px;
-        font-size: 14px;
-    }
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-    #game-container {
-        width: 70%;
-        height: auto;
-    }
-
-    #card {
-        padding: 15px;
-        border-radius: 8px;
-    }
-
-    button {
-        padding: 8px 16px;
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 1025px) {
-    #game-container {
-        width: 50%;
-        height: auto;
-    }
-
-    #card {
-        padding: 20px;
-        border-radius: 10px;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 18px;
     }
 }

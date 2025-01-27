@@ -79,4 +79,54 @@ document.addEventListener('DOMContentLoaded', () => {
   rightButton.addEventListener('click', () => handleAnswer('right'));
 
   loadQuestion();
+
+  // Добавляем функцию AutoScale и ChangeScale
+  window.addEventListener("resize", AutoScale); // Масштабируем страницу при растягивании окна
+  AutoScale(); // Масштабируем страницу после загрузки
+
+  function AutoScale() {
+      let width = window.innerWidth; // Ширина окна
+      if (width > 1280) {
+          ChangeScale("big");
+      } else if (width <= 1280 && width > 720) {
+          ChangeScale("normal");
+      } else if (width < 720) {
+          ChangeScale("small");
+      }
+  }
+
+  function ChangeScale(size) {
+      const gameContainer = document.getElementById('game-container');
+      const card = document.getElementById('card');
+      const buttons = document.querySelectorAll('button');
+
+      if (size === "big") {
+          gameContainer.style.width = "50vw";
+          gameContainer.style.height = "50vh";
+          card.style.padding = "5vh";
+          card.style.borderRadius = "2vh";
+          buttons.forEach(button => {
+              button.style.padding = "2vh 4vh";
+              button.style.fontSize = "2vh";
+          });
+      } else if (size === "normal") {
+          gameContainer.style.width = "70vw";
+          gameContainer.style.height = "70vh";
+          card.style.padding = "4vh";
+          card.style.borderRadius = "1.5vh";
+          buttons.forEach(button => {
+              button.style.padding = "1.5vh 3vh";
+              button.style.fontSize = "1.5vh";
+          });
+      } else if (size === "small") {
+          gameContainer.style.width = "90vw";
+          gameContainer.style.height = "90vh";
+          card.style.padding = "3vh";
+          card.style.borderRadius = "1vh";
+          buttons.forEach(button => {
+              button.style.padding = "1vh 2vh";
+              button.style.fontSize = "1vh";
+          });
+      }
+  }
 });
